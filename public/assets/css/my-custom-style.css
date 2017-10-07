@@ -1,0 +1,36 @@
+@font-face{
+    font-family: Glyphicons Halflings;
+    src: url(fonts/glyphicons-halflings-regular.woff);
+    src: url(fonts/glyphicons-halflings-regular.ttf);
+}
+body{
+    background: #ffffff url(/assets/img/sandiego-main.jpg) 0 0;
+}
+footer.footer {
+    background: rgba(255,255,255,0.5);
+    color: black!important;
+}
+.info-text {
+    background: rgba(255,255,255,0.9);
+    padding: 5px 25px 25px 25px;
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    color: black;
+}
+textarea {
+    resize: none;
+}
+.floatnone {
+    float: none !important;
+}
+
+.hero_section {
+    position: relative;
+    padding-top: 50px;
+    background: rgba(255,255,255,0.75);
+    margin-top: 75px;
+    border-radius: 15px;
+}
+.table{
+    vertical-align: middle!important;
+}
