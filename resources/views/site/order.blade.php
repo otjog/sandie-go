@@ -10,56 +10,19 @@
                     </div>
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-lg-12">
-                                @if (count($errors) > 0)
-                                    <div class="alert alert-danger">
-                                        <ul>
-                                            @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                @endif
-                                <h4>Предварительные данные:</h4>
-                                <table class="table table-responsive">
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Время</th>
-                                        <th>Адрес</th>
-                                    </tr>
-                                    <tr>
-                                        <td>Посадка</td>
-                                        <td>{{$direction->depTime}}</td>
-                                        <td>{{$direction->depAdd}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Высадка</td>
-                                        <td>{{$direction->arrTime}}</td>
-                                        <td>{{$direction->arrAdd}}</td>
-                                    </tr>
-                                    <tr class="active">
-                                        <td></td>
-                                        <td>Автомобиль:</td>
-                                        <td>Легковой</td>
-                                    </tr>
-                                    <tr class="active">
-                                        <td></td>
-                                        <td>Стоимость за 1 пассажира:</td>
-                                        <td>{{$direction->price}}$ (Наличными, при посадке)</td>
-                                    </tr>
-                                    <tr class="active">
-                                        <td></td>
-                                        <td>Предоплата:</td>
-                                        <td>0$</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="row">
+                            @if (count($errors) > 0)
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                             <div class="col-lg-4">
-                                <div class="panel panel-danger">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading"><h4>Введите ваши данные:</h4></div>
                                     <div class="panel-body">
-                                        <h4>Введите ваши данные:</h4>
                                         <?php
                                         if(!$direction->phoneForm){
                                             $contactType = 'E-mail';
@@ -87,13 +50,13 @@
                                                 </div>
                                                 <div class="form-group input-group">
                                                     <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                                                    <input class="form-control" placeholder="Введите ваше имя" id="orderName" type="text" name="orderName" onFocus="if(this.value==this.defaultValue)this.value='';" onBlur="if(this.value=='')this.value=this.defaultValue;">
+                                                    <input class="form-control input-sm" placeholder="Введите ваше имя" id="orderName" type="text" name="orderName" onFocus="if(this.value==this.defaultValue)this.value='';" onBlur="if(this.value=='')this.value=this.defaultValue;">
                                                 </div>
                                                 <div class="form-group input-group">
                                                     <span class="input-group-addon"><span class="<?php echo $contactIcon    ?>"></span></span>
                                                     <input class="form-control input-sm" placeholder="Введите ваш <?php echo $contactType?>" type="text" name="orderContact" onFocus="if(this.value==this.defaultValue)this.value='';" onBlur="if(this.value=='')this.value=this.defaultValue;">
                                                 </div>
-                                                <div class="form-group">
+                                                <div class="form-group input-group">
                                                     <input class="btn btn-danger" type="submit" value="Бронировать">
                                                 </div>
                                                 <div class="form-group">
@@ -105,6 +68,53 @@
                                 </div>
                             </div>
                             <div class="col-lg-8">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading"><h4>Предварительные данные:</h4></div>
+                                    <table class="table table-responsive">
+                                        <tr>
+                                            <td class="text-center" colspan="2"><strong>Посадка</strong></td>
+                                        </tr>
+                                        <tr class="info">
+                                            <td>Время:</td>
+                                            <td>{{$direction->depTime}}</td>
+                                        </tr>
+                                        <tr class="info ">
+                                            <td>Адрес:</td>
+                                            <td>{{$direction->depAdd}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center" colspan="2"><strong>Высадка</strong></td>
+                                        </tr>
+                                        <tr class="success">
+                                            <td>Время:</td>
+                                            <td>{{$direction->arrTime}}</td>
+                                        </tr>
+                                        <tr class="success">
+                                            <td>Адрес:</td>
+                                            <td>{{$direction->arrAdd}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2"></td>
+                                        </tr>
+                                        <tr class="active">
+                                            <td>Автомобиль:</td>
+                                            <td>Легковой</td>
+                                        </tr>
+                                        <tr class="active">
+                                            <td><strong>Стоимость:</strong></td>
+                                            <td><strong>{{$direction->price}}$</strong>  (за 1 пассажира)</td>
+                                        </tr>
+                                        <tr class="active">
+                                            <td><strong>Предоплата:</strong></td>
+                                            <td><strong>0$</strong>  (Оплата при посадке в авто)</td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
                                 <div class="panel panel-default">
                                     <div class="panel-body">
                                         {!! $direction->description!!}

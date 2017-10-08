@@ -34,3 +34,7 @@ textarea {
 .table{
     vertical-align: middle!important;
 }
+.form-group.input-group {
+    margin-left: 0;
+    margin-right: 0;
+}
