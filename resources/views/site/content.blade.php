@@ -20,8 +20,8 @@
                             <div class="form-group">
                                 <select class="form-control input-lg" id="orderDirection" name="orderDirection" onFocus="if(this.value==this.defaultValue)this.value='';" onBlur="if(this.value=='')this.value=this.defaultValue;">
                                     <option value="none"disabled selected>Выберите направление</option>
-                                    <option value="from_la_to_sd">из Airport Los Angeles в San Diego</option>
-                                    <option value="from_sd_to_la">из San Diego в Airport Los Angeles</option>
+                                    <option value="from_la_to_sd">из Аэропорта Лос-Анджелес в Сан Диего</option>
+                                    <option value="from_sd_to_la">из Сан Диего в Аэропорт Лос-Анджелеса</option>
                                 </select>
                             </div>
                             <div class="form-group">
