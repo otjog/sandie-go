@@ -16,6 +16,7 @@
     <script src="{{ asset('assets/js/html5shiv.js') }}"></script>
     <script src="{{ asset('assets/js/html5element.js') }}"></script>
     <![endif]-->
+    <script type="text/javascript" src="{{asset('assets/js/google-maps.js')}}"></script>
 
 </head>
 <body>
@@ -54,8 +55,6 @@
 <script type="text/javascript" src="{{asset('assets/js/jquery.easing.1.3.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/js/jquery.isotope.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/js/wow.js')}}"></script>
-<script type="text/javascript" src="{{asset('assets/js/custom.js')}}"></script>
-<script type="text/javascript" src="{{asset('assets/js/google-maps.js')}}"></script>
 
 </body>
 </html>
