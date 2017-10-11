@@ -8,7 +8,6 @@ body{
 }
 footer.footer {
     background: rgba(255,255,255,0.5);
-    color: black!important;
 }
 .info-text {
     background: rgba(255,255,255,0.9);
@@ -37,4 +36,7 @@ textarea {
 .form-group.input-group {
     margin-left: 0;
     margin-right: 0;
+}
+#map{
+    height: 600px;
 }

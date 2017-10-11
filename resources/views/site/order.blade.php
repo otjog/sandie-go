@@ -117,7 +117,10 @@
                             <div class="col-lg-12">
                                 <div class="panel panel-default">
                                     <div class="panel-body">
-                                        {!! $direction->description!!}
+                                        <div class="col-lg-6">
+                                            {!! $direction->description!!}
+                                        </div>
+                                        <div class="col-lg-6" id="map"></div>
                                     </div>
                                     <div class="panel-footer text-center">Более подробная инструкция придет на ваш <?php echo $contactText ?> после оформления заказа.</div>
                                 </div>
