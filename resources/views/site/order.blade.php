@@ -120,7 +120,16 @@
                                         <div class="col-lg-6">
                                             {!! $direction->description!!}
                                         </div>
-                                        <div class="col-lg-6" id="map"></div>
+                                        <div class="col-lg-6">
+                                            <div id="floating-panel">
+                                                <ul class="list-inline">
+                                                    <li><a id="lax" class="activeRoute">Посадка в Шаттл</a></li>
+                                                    <li><a id="shuttle">Маршрут Шаттла</a></li>
+                                                    <li><a id="alamotocar">Маршрут до машины</a></li>
+                                                </ul>
+                                            </div>
+                                            <div id="map"></div>
+                                        </div>
                                     </div>
                                     <div class="panel-footer text-center">Более подробная инструкция придет на ваш <?php echo $contactText ?> после оформления заказа.</div>
                                 </div>

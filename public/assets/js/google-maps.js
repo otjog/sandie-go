@@ -9,9 +9,13 @@ function initMap() {
     directionsDisplay.setMap(map);
 
     var coordinates = {
+        terminalExit:{
+            lat : 33.943949,
+            lng : -118.408465
+        },
         lax: {
-            lat : 33.943992,
-            lng : -118.408037
+            lat : 33.944117,
+            lng : -118.408146
         },
         alamo: {
             lat : 33.954928,
@@ -22,8 +26,38 @@ function initMap() {
             lng : -118.375240
         }
     };
+
+
+
     //route form Alamo to Sandie-Go's car:
     calculateAndDisplayRoute(directionsService, directionsDisplay, 'WALKING', coordinates.alamo, coordinates.car);
+    document.getElementById('floating-panel').addEventListener('click', function(e) {
+        e = e || event
+
+        fp = document.getElementById('floating-panel');
+        arrId = fp.getElementsByTagName('a');
+        for(var i = 0; i < arrId.length;i++){
+            if(e.target.id == arrId[i].id){
+                arrId[i].className = 'activeRoute';
+            }else{
+                arrId[i].className = '';
+            }
+        }
+
+
+
+        if(e.target.id === 'lax'){
+            calculateAndDisplayRoute(directionsService, directionsDisplay, 'WALKING', coordinates.terminalExit, coordinates.lax);
+        }else if(e.target.id === 'shuttle'){
+            calculateAndDisplayRoute(directionsService, directionsDisplay, 'DRIVING', coordinates.lax, coordinates.alamo);
+        }else if(e.target.id === 'alamotocar'){
+            calculateAndDisplayRoute(directionsService, directionsDisplay, 'WALKING', coordinates.alamo, coordinates.car);
+        }else{
+            //todo проверка на ошибку
+        }
+
+
+    });
 }
 
 function calculateAndDisplayRoute(directionsService, directionsDisplay, selectedMode, originCrd, destinationCrd) {
