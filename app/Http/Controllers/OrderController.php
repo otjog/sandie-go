@@ -12,15 +12,16 @@ class OrderController extends Controller
     public function execute(Request $request, $alias){
         if(isset($alias)){
             $directions = Direction::all();
-            $not_alias = 0;
+            $not_alias = false;
             foreach($directions as $direction){
                 if($direction->alias === $alias){
-                    $not_alias = 1;
+                    $not_alias = true;
 
-                    $contactType = '';
+                    $contactType = false;
                     if(!$direction->phoneForm){
                         $contactType = '|email';
                     }
+
                     /**
                      * POST
                      */
@@ -41,13 +42,12 @@ class OrderController extends Controller
 
                         $data = $request->all();
 
-                        Mail::send('site.email', ['data'=>$data], function($message) use ($data, $request){
+                        Mail::send('site.email', ['data'=>$data], function($message) use ($data, $request, $contactType){
                             $mail_admin = env('MAIL_ADMIN');
 
-                            $message->from('fvirus@mail.ru', $data['orderName']);
+                            $message->from($mail_admin, $data['orderName']);
                             $message->to($mail_admin);
-                            if(0){
-                                //todo сделать для тех, кто указывает емайл
+                            if($contactType){
                                 $message->cc($data['orderContact']);
                             }
                             $message->subject('Order');

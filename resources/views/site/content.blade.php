@@ -3,7 +3,8 @@
         <div class="container">
             <div class="row hero_section">
                 <div class="col-lg-9 center-block floatnone vcenter">
-                    <h2 class="text-center">Ежедневные рейсы за 2600руб. </h2>
+                    <h1 class="text-center">Ежедневные рейсы</h1>
+                    <h2 class="text-center"> San Diego - Los Angeles - San Diego</h2>
                 </div>
                 <div class="col-lg-9 center-block floatnone">
                     @if (count($errors) > 0)

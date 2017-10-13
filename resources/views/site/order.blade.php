@@ -34,27 +34,28 @@
                                             $contactText = 'телефонный номер';
                                         }
                                         ?>
-                                        <div class="form">
+                                        <div class="form" >
+                                            <!-- todo добавить проыерку формы JS-->
                                             <form action="{{route('order', ['alias'=>$direction->alias])}}" name="order" class="form-horizontal" role="form" method="post">
                                                 <div class="form-group input-group">
                                                     <span class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span></span>
-                                                    <input class="form-control input-sm" type="text" name="orderAddress" placeholder="Введите адрес в San Diego" onFocus="if(this.value==this.defaultValue)this.value='';" onBlur="if(this.value=='')this.value=this.defaultValue;">
+                                                    <input class="form-control input-sm" type="text" name="orderAddress" placeholder="Введите адрес в San Diego" value="{{ old('orderAddress') }}">
                                                 </div>
                                                 <div class="form-group input-group">
                                                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-                                                    <input class="form-control input-sm" name="orderDate" placeholder="Укажите дату поездки" data-provide="datepicker" onFocus="if(this.value==this.defaultValue)this.value='';" onBlur="if(this.value=='')this.value=this.defaultValue;">
+                                                    <input class="form-control input-sm" name="orderDate" placeholder="Укажите дату поездки" data-provide="datepicker" value="{{ old('orderDate') }}">
                                                 </div>
                                                 <div class="form-group input-group">
                                                     <span class="input-group-addon"><span class="glyphicon glyphicon-list-alt"></span></span>
-                                                    <input class="form-control input-sm" type="text" placeholder="Введите кол-во пассажиров" name="orderCountPeople" onFocus="if(this.value==this.defaultValue)this.value='';" onBlur="if(this.value=='')this.value=this.defaultValue;">
+                                                    <input class="form-control input-sm" type="text" placeholder="Введите кол-во пассажиров" name="orderCountPeople" value="{{ old('orderCountPeople') }}">
                                                 </div>
                                                 <div class="form-group input-group">
                                                     <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                                                    <input class="form-control input-sm" placeholder="Введите ваше имя" id="orderName" type="text" name="orderName" onFocus="if(this.value==this.defaultValue)this.value='';" onBlur="if(this.value=='')this.value=this.defaultValue;">
+                                                    <input class="form-control input-sm" placeholder="Введите ваше имя" id="orderName" type="text" name="orderName" value="{{ old('orderName') }}">
                                                 </div>
                                                 <div class="form-group input-group">
                                                     <span class="input-group-addon"><span class="<?php echo $contactIcon    ?>"></span></span>
-                                                    <input class="form-control input-sm" placeholder="Введите ваш <?php echo $contactType?>" type="text" name="orderContact" onFocus="if(this.value==this.defaultValue)this.value='';" onBlur="if(this.value=='')this.value=this.defaultValue;">
+                                                    <input class="form-control input-sm" placeholder="Введите ваш <?php echo $contactType?>" type="text" name="orderContact" value="{{ old('orderContact') }}">
                                                 </div>
                                                 <div class="form-group input-group">
                                                     <input class="btn btn-danger" type="submit" value="Бронировать">
