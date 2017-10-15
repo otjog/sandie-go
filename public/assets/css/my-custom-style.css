@@ -22,13 +22,12 @@ textarea {
 .floatnone {
     float: none !important;
 }
-
 .hero_section {
     position: relative;
     padding-top: 50px;
-    background: rgba(255,255,255,0.75);
     margin-top: 75px;
     border-radius: 15px;
+    color: white;
 }
 .table{
     vertical-align: middle!important;
