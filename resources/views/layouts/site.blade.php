@@ -47,6 +47,7 @@
 
 <script type="text/javascript" src="{{asset('assets/js/jquery-3.2.1.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/js/bootstrap-datepicker.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/js/bootstrap-datepicker.ru.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/js/moment.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/js/bootstrap.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/js/jquery-scrolltofixed.js')}}"></script>
@@ -54,6 +55,7 @@
 <script type="text/javascript" src="{{asset('assets/js/jquery.easing.1.3.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/js/jquery.isotope.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/js/wow.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/js/my-script.js')}}"></script>
 
 </body>
 </html>

@@ -10,15 +10,6 @@
                     </div>
                     <div class="panel-body">
                         <div class="row">
-                            @if (count($errors) > 0)
-                                <div class="alert alert-danger">
-                                    <ul>
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            @endif
                             <div class="col-lg-4">
                                 <div class="panel panel-default">
                                     <div class="panel-heading"><h4>Введите ваши данные:</h4></div>
@@ -34,31 +25,31 @@
                                             $contactText = 'телефонный номер';
                                         }
                                         ?>
-                                        <div class="form" >
-                                            <!-- todo добавить проыерку формы JS-->
+                                        <div class="form">
                                             <form action="{{route('order', ['alias'=>$direction->alias])}}" name="order" class="form-horizontal" role="form" method="post">
                                                 <div class="form-group input-group">
                                                     <span class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span></span>
-                                                    <input class="form-control input-sm" type="text" name="orderAddress" placeholder="Введите адрес в San Diego" value="{{ old('orderAddress') }}">
+                                                    <input class="form-control input-sm" type="text" name="orderAddress" placeholder="Введите адрес в San Diego">
                                                 </div>
                                                 <div class="form-group input-group">
                                                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-                                                    <input class="form-control input-sm" name="orderDate" placeholder="Укажите дату поездки" data-provide="datepicker" value="{{ old('orderDate') }}">
+                                                    <input type="text" class="form-control input-sm" id="orderDate" name="orderDate" placeholder="Укажите дату поездки">
                                                 </div>
                                                 <div class="form-group input-group">
                                                     <span class="input-group-addon"><span class="glyphicon glyphicon-list-alt"></span></span>
-                                                    <input class="form-control input-sm" type="text" placeholder="Введите кол-во пассажиров" name="orderCountPeople" value="{{ old('orderCountPeople') }}">
+                                                    <input class="form-control input-sm" type="text" placeholder="Введите кол-во пассажиров" name="orderCountPeople">
                                                 </div>
                                                 <div class="form-group input-group">
                                                     <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                                                    <input class="form-control input-sm" placeholder="Введите ваше имя" id="orderName" type="text" name="orderName" value="{{ old('orderName') }}">
+                                                    <input class="form-control input-sm" placeholder="Введите ваше имя" type="text" name="orderName">
                                                 </div>
                                                 <div class="form-group input-group">
                                                     <span class="input-group-addon"><span class="<?php echo $contactIcon    ?>"></span></span>
-                                                    <input class="form-control input-sm" placeholder="Введите ваш <?php echo $contactType?>" type="text" name="orderContact" value="{{ old('orderContact') }}">
+                                                    <input class="form-control input-sm" placeholder="Введите ваш <?php echo $contactType?>" type="text" name="orderContact">
+                                                    <!-- todo сделать доп поле, если поле емайл не пройдет валидацию, но клиент настаивает на правильности, отправлять его данные текстовым полем без валидации-->
                                                 </div>
                                                 <div class="form-group input-group">
-                                                    <input class="btn btn-danger" type="submit" value="Бронировать">
+                                                        <input class="btn btn-danger" type="button" value="Бронировать" onclick="validate(this.form);">
                                                 </div>
                                                 <div class="form-group">
                                                     <input type="hidden" name="_token" value="{{csrf_token()}}" />
