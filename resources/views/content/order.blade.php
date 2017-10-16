@@ -3,7 +3,8 @@
         <div class="row">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h1 class="text-center" style="color: white">Оформление поездки <small style="color: white">{{$direction->name}}</small></h1>
+                    <h2 class="text-center" style="color: white">Оформление поездки</h2>
+                    <h3 class="text-center" style="color: white">{{$direction->name}}</h3>
                 </div>
                 <div class="panel-body">
                     <div class="row">
