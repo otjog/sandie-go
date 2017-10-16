@@ -31,6 +31,6 @@ class IndexController extends Controller
         /**
          * GET
          */
-        return view('site.index');
+        return view('site.main');
     }
 }

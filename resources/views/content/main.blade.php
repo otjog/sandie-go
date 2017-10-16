@@ -3,8 +3,8 @@
         <div class="container">
             <div class="row hero_section">
                 <div class="col-lg-9 center-block floatnone vcenter">
-                    <h1 class="text-center">Ежедневные рейсы</h1>
-                    <h2 class="text-center"> San Diego - Los Angeles - San Diego</h2>
+                    <h1 class="text-center" style="color: white">Ежедневные рейсы</h1>
+                    <h2 class="text-center" style="color: white"> San Diego - Los Angeles - San Diego</h2>
                 </div>
                 <div class="col-lg-9 center-block floatnone">
                     @if (count($errors) > 0)
@@ -19,8 +19,8 @@
                     <div class="form">
                         <form action="{{route('home')}}" class="form-horizontal" role="form" method="post">
                             <div class="form-group">
-                                <select class="form-control input-lg" id="orderDirection" name="orderDirection" onFocus="if(this.value==this.defaultValue)this.value='';" onBlur="if(this.value=='')this.value=this.defaultValue;">
-                                    <option value="none"disabled selected>Выберите направление</option>
+                                <select class="form-control input-lg" id="orderDirection" name="orderDirection">
+                                    <option value="none" disabled selected>Выберите направление</option>
                                     <option value="from_la_to_sd">из Аэропорта Лос-Анджелес в Сан Диего</option>
                                     <option value="from_sd_to_la">из Сан Диего в Аэропорт Лос-Анджелеса</option>
                                 </select>

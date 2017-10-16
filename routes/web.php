@@ -14,6 +14,7 @@
 Route::group([], function(){
     Route::match(['get', 'post'], '/', ['uses'=>'IndexController@execute', 'as'=>'home']);
     Route::match(['get', 'post'], '/order/{alias}', ['uses'=>'OrderController@execute', 'as'=>'order']);
+    Route::match(['get', 'post'], '/contact', ['uses'=>'ContactController@execute', 'as'=>'contact']);
     Route::auth();
 });
 //sandy.com/admin

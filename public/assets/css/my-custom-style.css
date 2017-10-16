@@ -4,8 +4,9 @@
     src: url(fonts/glyphicons-halflings-regular.ttf);
 }
 body{
-    background: #ffffff url(/assets/img/sandiego-main.jpeg) -1900px -1000px;
+    background: #ffffff url(/assets/img/sandiego-main-01-medium.jpeg) fixed -1100px -770px;
 }
+
 footer.footer {
     background: rgba(255,255,255,0.5);
 }

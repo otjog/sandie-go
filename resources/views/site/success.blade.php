@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    @include('content.order')
+    @include('content.success')
 @endsection
 
 @section('footer')

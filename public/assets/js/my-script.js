@@ -36,13 +36,13 @@ function signalErrors(objErrors){
     }
 }
 
-function validate(form){
-
+function validate(form, test){
+    console.log();
     var objErrors = {};
     for(var i = 0; i < form.length; i++){
-        if(!form.elements[i].value){
+        if(form.elements[0].required && !form.elements[i].value){
             objErrors[form.elements[i].name] = form.elements[i].placeholder;
-        }else if(form.elements[i].placeholder.indexOf('mail') > 0 && !isMail(form.elements[i].value)){
+        }else if(form.elements[i].name.indexOf('mail') > 0 && !isMail(form.elements[i].value)){
             objErrors[form.elements[i].name] = form.elements[i].placeholder;
         }else if(form.elements[i].name === 'orderCountPeople'){
             if(!isNumeric(form.elements[i].value) || form.elements[i].value < 1){

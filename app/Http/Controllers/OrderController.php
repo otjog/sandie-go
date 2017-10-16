@@ -27,28 +27,29 @@ class OrderController extends Controller
                      */
                     if($request->isMethod('post')){
 
-                        $messages = [
-                            'required' => 'Поле :attribute обязательно к заполнению',
-                            'email' => 'Поле :attribute должно соотвествовать email адресу',
-                        ];
+                        $order = new Order;
+                        /**
+                         * todo сделать через форич
+                         */
+                        $order->direction   = $alias;
+                        $order->name        = $request->orderName;
+                        if(!$direction->phoneForm){
+                            $order->email       = $request->orderEmail;
+                        }else{
+                            $order->phone       = $request->orderPhone;
+                        }
+                        $order->address     = $request->orderAddress;
+                        $order->date        = $request->orderDate;
+                        $order->count       = $request->orderCountPeople;
+                        $order->save();
 
-                        $this->validate($request, [
-                            'orderAddress'      => 'required',
-                            'orderDate'         => 'required|date|after:date',
-                            'orderCountPeople'  => 'required|integer|min:1',
-                            'orderName'         => 'required|max:255',
-                            'orderContact'        => 'required'.$contactType,
-                        ], $messages);
-
-                        $data = $request->all();
-
-                        Mail::send('site.email', ['data'=>$data], function($message) use ($data, $request, $contactType){
+                        Mail::send('content.email', ['direction'=>$direction, 'order'=>$order], function($message) use ($order, $request, $contactType){
                             $mail_admin = env('MAIL_ADMIN');
 
-                            $message->from($mail_admin, $data['orderName']);
+                            $message->from($mail_admin, $order['name']);
                             $message->to($mail_admin);
                             if($contactType){
-                                $message->cc($data['orderContact']);
+                                $message->cc($order['email']);
                             }
                             $message->subject('Order');
                             /**
@@ -57,24 +58,7 @@ class OrderController extends Controller
                             $request->session()->flash('status', 'Ваш заказ принят! На ваш электронный адрес придет письмо с данными вашего заказа и инструкциями.');
                         });
 
-                        $order = new Order;
-                        /**
-                         * todo сделать через форич
-                         */
-                        $order->direction   = $alias;
-                        $order->name        = $data['orderName'];
-                        if(!$direction->phoneForm){
-                            $order->email       = $data['orderContact'];
-                        }else{
-                            $order->phone       = $data['orderContact'];
-                        }
-                        $order->address     = $data['orderAddress'];
-                        $order->date        = $data['orderDate'];
-                        $order->count       = $data['orderCountPeople'];
-
-                        $order->save();
-
-                        return view('site.success_page')->with(['order'=>$order, 'direction'=>$direction]);
+                        return view('site.success')->with(['order'=>$order, 'direction'=>$direction]);
                     }
                     /**
                      * GET
