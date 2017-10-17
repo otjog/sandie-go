@@ -44,8 +44,6 @@ function initMap() {
             }
         }
 
-
-
         if(e.target.id === 'lax'){
             calculateAndDisplayRoute(directionsService, directionsDisplay, 'WALKING', coordinates.terminalExit, coordinates.lax);
         }else if(e.target.id === 'shuttle'){
@@ -55,8 +53,6 @@ function initMap() {
         }else{
             //todo проверка на ошибку
         }
-
-
     });
 }
 

@@ -12,8 +12,10 @@ class OrderController extends Controller
     public function execute(Request $request, $alias){
         if(isset($alias)){
             $directions = Direction::all();
+            $not_alias = false;
             foreach($directions as $direction){
                 if($direction->alias === $alias){
+                    $not_alias = true;
 
                     $contactType = false;
                     if(!$direction->phoneForm){
@@ -59,10 +61,12 @@ class OrderController extends Controller
                      * GET
                      */
                     return view('site.order')->with(['direction'=>$direction]);
-                }else{
-                    abort(404);
                 }
             }
+            if(!$not_alias){
+                abort(404);
+            }
+            //todo объединить эти 2 аборта
         }else{
             abort(404);
         }
