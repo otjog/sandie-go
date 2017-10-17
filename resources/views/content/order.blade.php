@@ -44,7 +44,6 @@
                                             <div class="form-group input-group">
                                                 <span class="input-group-addon"><span class="<?php echo $contactIcon    ?>"></span></span>
                                                 <input required class="form-control input-sm" placeholder="Введите ваш <?php echo $contactText?>" type="text" name="order<?php echo $contactType?>">
-                                                <!-- todo сделать доп поле, если поле емайл не пройдет валидацию, но клиент настаивает на правильности, отправлять его данные текстовым полем без валидации-->
                                             </div>
                                             <div class="form-group input-group">
                                                 <input class="btn btn-danger" type="button" value="Бронировать" onclick="validate(this.form);">

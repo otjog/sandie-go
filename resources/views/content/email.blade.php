@@ -1,6 +1,3 @@
-<style>
-
-</style>
 <section id="order">
     <div class="container">
         <div class="row">

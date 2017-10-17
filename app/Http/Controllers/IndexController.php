@@ -24,7 +24,6 @@ class IndexController extends Controller
 
             $alias = $request->input('orderDirection');
 
-            //todo как с маршрутом отправиить модель Direction, чтобы в этом контроллере проверить соответствие алиаса и отправить модель в другой контроллер
             return redirect()->route('order', ['alias'=>$alias]);
         }
 
